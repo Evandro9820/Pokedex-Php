@@ -54,7 +54,7 @@ function listarPokemons()
                     <td>" . $row["tipo"] . "</td>
                     <td>
                         <button class='btn btn-primary' onclick='exibirFormularioEdicao(" . $row["id"] . ", \"" . $row["nome"] . "\", \"" . $row["tipo"] . "\")'>Editar</button>
-                        <form action='main.php' method='post' style='display: inline;'>
+                        <form action='home.php' method='post' style='display: inline;'>
                             <input type='hidden' name='id_pokemon' value='" . $row["id"] . "'>
                             <button class='btn btn-danger' type='submit' name='excluir'>Excluir</button>
                         </form>

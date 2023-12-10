@@ -1,43 +1,30 @@
 <?php
-session_start();
+include "conexao.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recupere os dados do formulário
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    // Conecte-se ao banco de dados
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "pokemon";
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+    $result = $conn->query($sql);
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Verifique a conexão
-    if ($conn->connect_error) {
-        die("Erro de conexão: " . $conn->connect_error);
-    }
-
-    // Consulta SQL para verificar as credenciais do usuário
-    $sql = "SELECT id, nome, senha FROM usuarios WHERE email = ? AND senha = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $email, $senha);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    if ($user) {
-        // Autenticação bem-sucedida
-        $_SESSION["username"] = $user["nome"];
-        echo "Login bem-sucedido. Bem-vindo, " . $_SESSION["username"] . "!";
-        header("Location: home.php");
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($senha, $row["senha"])) {
+            session_start();
+            $_SESSION["usuario_id"] = $row["id"];
+            $_SESSION["usuario_nome"] = $row["nome"];
+            header("Location: home.php");
+            exit();
+        } else {
+            header("Location: login.html?erro=senha");
+            exit();
+        }
     } else {
-        // Credenciais incorretas
-        echo "Credenciais incorretas. Por favor, tente novamente.";
+        header("Location: login.html?erro=email");
+        exit();
     }
-
-    $stmt->close();
-    $conn->close();
 }
+
+$conn->close();
 ?>

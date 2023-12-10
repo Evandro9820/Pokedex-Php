@@ -40,7 +40,7 @@
 
             <div class="f-5">
                 <p class="">Não possui uma conta?</p>
-                <a href="cadastro.php" class="text-primary text-decoration-none">Cadastre-se</a>
+                <a href="index.php" class="text-primary text-decoration-none">Cadastre-se</a>
             </div>
         </form>
     </main>

@@ -26,6 +26,7 @@
 
 <body class="d-flex justify-content-center align-items-center bg-light fs-5">
     <main class="bg-white rounded-4 p-4">
+        
         <?php
         include "processar_cadastro.php";
 
