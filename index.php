@@ -26,14 +26,8 @@
 
 <body class="d-flex justify-content-center align-items-center bg-light fs-5">
     <main class="bg-white rounded-4 p-4">
-        
-        <?php
-        include "processar_cadastro.php";
 
-        if ($mensagem != "") {
-            echo "<p style='color: " . ($mensagem == "Cadastro bem-sucedido!" ? "blue" : "red") . ";'>$mensagem</p>";
-        }
-        ?>
+
 
         <form action="processar_cadastro.php" method="POST" class="d-flex flex-column gap-4">
             <header class="h1">Cadastro</header>

@@ -109,7 +109,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["excluir"])) {
                 </div>
 
                 <div>
-                    <button type="submit" class="btn btn-primary rounded-4 p-3 border-0 text-white w-100" name="cadastrar">Cadastrar</button>
+                    <button type="submit" class="btn btn-primary rounded-4 p-3 border-0 text-white w-100 mb-3" name="cadastrar">Cadastrar</button>
+                    <button type="button" class="btn btn-secondary rounded-4 p-3 border-0 text-white w-100 " onclick="location.href='logout.php'">Sair</button>
+
                 </div>
             </form>
 
