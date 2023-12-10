@@ -46,26 +46,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["excluir"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         body {
-            margin: auto;
-            padding: 0;
-            overflow: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100dvh;
+            height: 100vh;
         }
 
-        form {
-            width: auto;
-            margin: auto;
+        .btn-primary {
+            background-color: green !important;
         }
 
-        table {
-            width: auto;
+        .bg-light {
+            background-color: aliceblue !important;
         }
 
-        .container {
-            margin-top: 40px;
+        button:hover {
+            opacity: .8;
         }
     </style>
     <script>
